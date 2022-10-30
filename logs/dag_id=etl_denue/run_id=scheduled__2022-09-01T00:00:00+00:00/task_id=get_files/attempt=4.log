@@ -1,0 +1,320 @@
+[2022-10-29 22:23:36,004] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-29 22:23:36,009] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-29 22:23:36,010] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-29 22:23:36,010] {taskinstance.py:1377} INFO - Starting attempt 4 of 6
+[2022-10-29 22:23:36,010] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-29 22:23:36,017] {taskinstance.py:1397} INFO - Executing <Task(SeleniumOperator): get_files> on 2022-09-01 00:00:00+00:00
+[2022-10-29 22:23:36,023] {standard_task_runner.py:52} INFO - Started process 4472 to run task
+[2022-10-29 22:23:36,024] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'etl_denue', 'get_files', 'scheduled__2022-09-01T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/get_raw_files/scrapper.py', '--cfg-path', '/tmp/tmpx0d0b75c', '--error-file', '/tmp/tmpn68g_ow6']
+[2022-10-29 22:23:36,025] {standard_task_runner.py:80} INFO - Job 6: Subtask get_files
+[2022-10-29 22:23:36,153] {task_command.py:371} INFO - Running <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [running]> on host 46fb15ce4cdf
+[2022-10-29 22:23:36,194] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Freakisimo
+AIRFLOW_CTX_DAG_ID=etl_denue
+AIRFLOW_CTX_TASK_ID=get_files
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-01T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-01T00:00:00+00:00
+[2022-10-29 22:23:36,194] {selenium_hook.py:15} INFO - initialised hook
+[2022-10-29 22:23:36,194] {selenium_hook.py:19} INFO - getting ip
+[2022-10-29 22:23:36,196] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/lib/python3.7/http/client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1036, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.7/http/client.py", line 976, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/transport/unixconn.py", line 30, in connect
+    sock.connect(self.unix_socket)
+FileNotFoundError: [Errno 2] No such file or directory
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 499, in send
+    timeout=timeout,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 786, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/lib/python3.7/http/client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1036, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.7/http/client.py", line 976, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/transport/unixconn.py", line 30, in connect
+    sock.connect(self.unix_socket)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 214, in _retrieve_server_version
+    return self.version(api_version=False)["ApiVersion"]
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/daemon.py", line 181, in version
+    return self._result(self._get(url), json=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/utils/decorators.py", line 46, in inner
+    return f(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 237, in _get
+    return self.get(url, **self._set_request_timeout(kwargs))
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 600, in get
+    return self.request("GET", url, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 547, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/airflow/plugins/operators/selenium_operator.py", line 22, in execute
+    hook.get_ip_add()
+  File "/opt/airflow/plugins/hooks/selenium_hook.py", line 20, in get_ip_add
+    client = docker.DockerClient()
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/client.py", line 45, in __init__
+    self.api = APIClient(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 197, in __init__
+    self._version = self._retrieve_server_version()
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/client.py", line 222, in _retrieve_server_version
+    f'Error while fetching server API version: {e}'
+docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))
+[2022-10-29 22:23:36,201] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_denue, task_id=get_files, execution_date=20220901T000000, start_date=20221029T222336, end_date=20221029T222336
+[2022-10-29 22:23:36,206] {standard_task_runner.py:97} ERROR - Failed to execute job 6 for task get_files (Error while fetching server API version: ('Connection aborted.', FileNotFoundError(2, 'No such file or directory')); 4472)
+[2022-10-29 22:23:36,235] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-10-29 22:23:36,355] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-10-30 03:38:51,635] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-30 03:38:51,641] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-30 03:38:51,642] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-30 03:38:51,642] {taskinstance.py:1377} INFO - Starting attempt 4 of 9
+[2022-10-30 03:38:51,642] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-30 03:38:51,651] {taskinstance.py:1397} INFO - Executing <Task(SeleniumOperator): get_files> on 2022-09-01 00:00:00+00:00
+[2022-10-30 03:38:51,658] {standard_task_runner.py:52} INFO - Started process 2514 to run task
+[2022-10-30 03:38:51,660] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'etl_denue', 'get_files', 'scheduled__2022-09-01T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/get_raw_files/scrapper.py', '--cfg-path', '/tmp/tmpi6xyx24m', '--error-file', '/tmp/tmptaxzvf5h']
+[2022-10-30 03:38:51,661] {standard_task_runner.py:80} INFO - Job 6: Subtask get_files
+[2022-10-30 03:38:51,699] {task_command.py:371} INFO - Running <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [running]> on host 007ff0dcadd8
+[2022-10-30 03:38:51,748] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Freakisimo
+AIRFLOW_CTX_DAG_ID=etl_denue
+AIRFLOW_CTX_TASK_ID=get_files
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-01T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-01T00:00:00+00:00
+[2022-10-30 03:38:51,874] {selenium_hook.py:14} INFO - initialised hook
+[2022-10-30 03:38:51,874] {selenium_hook.py:18} INFO - getting ip
+[2022-10-30 03:38:51,874] {selenium_hook.py:31} INFO - creating driver
+[2022-10-30 03:38:51,874] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:38:51,875] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:39:01,885] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:39:01,885] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:39:11,893] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:39:11,893] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:39:21,901] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:39:21,901] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:39:31,909] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:39:31,909] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:39:41,919] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:39:41,920] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:39:51,929] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:39:51,929] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:40:01,937] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:40:01,937] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:40:11,945] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:40:11,945] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:40:21,954] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:40:21,954] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:40:31,961] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:40:31,961] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:40:41,969] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:40:41,969] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:40:51,977] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:40:51,977] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:41:01,987] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:41:01,987] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:41:11,997] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:41:11,997] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:41:22,005] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:41:22,005] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:41:32,015] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:41:32,015] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:41:42,025] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:41:42,025] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:41:52,033] {selenium_hook.py:48} ERROR - No host specified.
+[2022-10-30 03:41:52,033] {selenium_hook.py:49} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 03:41:58,014] {local_task_job.py:221} WARNING - State of this instance has been externally set to restarting. Terminating instance.
+[2022-10-30 03:41:58,016] {process_utils.py:129} INFO - Sending Signals.SIGTERM to group 2514. PIDs of all processes in the group: [2514]
+[2022-10-30 03:41:58,016] {process_utils.py:80} INFO - Sending the signal Signals.SIGTERM to group 2514
+[2022-10-30 03:41:58,016] {taskinstance.py:1561} ERROR - Received SIGTERM. Terminating subprocesses.
+[2022-10-30 03:41:58,024] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/plugins/hooks/selenium_hook.py", line 43, in create_driver
+    desired_capabilities=capabilities,
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 272, in __init__
+    self.start_session(capabilities, browser_profile)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 364, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 427, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/remote_connection.py", line 344, in execute
+    return self._request(command_info[0], url, body=data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/remote_connection.py", line 366, in _request
+    response = self._conn.request(method, url, body=body, headers=headers)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/request.py", line 79, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/request.py", line 170, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/poolmanager.py", line 365, in urlopen
+    conn = self.connection_from_host(u.host, port=u.port, scheme=u.scheme)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/poolmanager.py", line 237, in connection_from_host
+    raise LocationValueError("No host specified.")
+urllib3.exceptions.LocationValueError: No host specified.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/airflow/plugins/operators/selenium_operator.py", line 23, in execute
+    hook.create_driver()
+  File "/opt/airflow/plugins/hooks/selenium_hook.py", line 50, in create_driver
+    logging.info('remote not ready, sleeping for ten seconds')
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1563, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2022-10-30 03:41:58,026] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=etl_denue, task_id=get_files, execution_date=20220901T000000, start_date=20221030T033851, end_date=20221030T034158
+[2022-10-30 03:41:58,032] {standard_task_runner.py:97} ERROR - Failed to execute job 6 for task get_files (Task received SIGTERM signal; 2514)
+[2022-10-30 03:41:58,042] {process_utils.py:75} INFO - Process psutil.Process(pid=2514, status='terminated', exitcode=1, started='03:38:51') (2514) terminated with exit code 1
+[2022-10-30 05:14:51,072] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-30 05:14:51,078] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-30 05:14:51,078] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-30 05:14:51,078] {taskinstance.py:1377} INFO - Starting attempt 4 of 9
+[2022-10-30 05:14:51,078] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-30 05:14:51,086] {taskinstance.py:1397} INFO - Executing <Task(SeleniumOperator): get_files> on 2022-09-01 00:00:00+00:00
+[2022-10-30 05:14:51,090] {standard_task_runner.py:52} INFO - Started process 1221 to run task
+[2022-10-30 05:14:51,092] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'etl_denue', 'get_files', 'scheduled__2022-09-01T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/get_raw_files/scrapper.py', '--cfg-path', '/tmp/tmpo8cxzsnb', '--error-file', '/tmp/tmpf9m8dleh']
+[2022-10-30 05:14:51,093] {standard_task_runner.py:80} INFO - Job 6: Subtask get_files
+[2022-10-30 05:14:51,126] {task_command.py:371} INFO - Running <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [running]> on host 35d711a1e0f4
+[2022-10-30 05:14:51,170] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Freakisimo
+AIRFLOW_CTX_DAG_ID=etl_denue
+AIRFLOW_CTX_TASK_ID=get_files
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-01T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-01T00:00:00+00:00
+[2022-10-30 05:14:51,272] {selenium_hook.py:14} INFO - initialised hook
+[2022-10-30 05:14:51,272] {selenium_hook.py:18} INFO - getting ip
+[2022-10-30 05:14:51,272] {selenium_hook.py:31} INFO - creating driver
+[2022-10-30 05:15:26,888] {local_task_job.py:84} ERROR - Received SIGTERM. Terminating subprocesses
+[2022-10-30 05:15:26,889] {process_utils.py:129} INFO - Sending Signals.SIGTERM to group 1221. PIDs of all processes in the group: [1221]
+[2022-10-30 05:15:26,889] {process_utils.py:80} INFO - Sending the signal Signals.SIGTERM to group 1221
+[2022-10-30 05:15:26,890] {taskinstance.py:1561} ERROR - Received SIGTERM. Terminating subprocesses.
+[2022-10-30 05:15:26,890] {selenium_hook.py:49} ERROR - Task received SIGTERM signal
+[2022-10-30 05:15:26,890] {selenium_hook.py:50} INFO - remote not ready, sleeping for ten seconds
+[2022-10-30 05:28:25,782] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-30 05:28:25,788] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-30 05:28:25,788] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-30 05:28:25,788] {taskinstance.py:1377} INFO - Starting attempt 4 of 9
+[2022-10-30 05:28:25,788] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-30 05:28:25,796] {taskinstance.py:1397} INFO - Executing <Task(SeleniumOperator): get_files> on 2022-09-01 00:00:00+00:00
+[2022-10-30 05:28:25,802] {standard_task_runner.py:52} INFO - Started process 1136 to run task
+[2022-10-30 05:28:25,804] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'etl_denue', 'get_files', 'scheduled__2022-09-01T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/get_raw_files/scrapper.py', '--cfg-path', '/tmp/tmpmgi4ub_p', '--error-file', '/tmp/tmpj93tarzc']
+[2022-10-30 05:28:25,805] {standard_task_runner.py:80} INFO - Job 6: Subtask get_files
+[2022-10-30 05:28:25,838] {task_command.py:371} INFO - Running <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [running]> on host aa62e71d0153
+[2022-10-30 05:28:25,881] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Freakisimo
+AIRFLOW_CTX_DAG_ID=etl_denue
+AIRFLOW_CTX_TASK_ID=get_files
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-01T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-01T00:00:00+00:00
+[2022-10-30 05:28:25,978] {selenium_hook.py:14} INFO - initialised hook
+[2022-10-30 05:28:25,978] {selenium_hook.py:18} INFO - getting ip
+[2022-10-30 05:28:25,978] {selenium_hook.py:31} INFO - creating driver
+[2022-10-30 05:28:26,083] {selenium_hook.py:46} INFO - remote ready
+[2022-10-30 05:28:26,083] {logging_mixin.py:115} INFO - https://www.inegi.org.mx/app/descarga/
+[2022-10-30 05:28:28,309] {logging_mixin.py:115} INFO - None
+[2022-10-30 05:28:28,416] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=etl_denue, task_id=get_files, execution_date=20220901T000000, start_date=20221030T052825, end_date=20221030T052828
+[2022-10-30 05:28:28,460] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-10-30 05:28:28,483] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-10-30 05:52:04,110] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-30 05:52:04,116] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-30 05:52:04,116] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-30 05:52:04,116] {taskinstance.py:1377} INFO - Starting attempt 4 of 9
+[2022-10-30 05:52:04,116] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-30 05:52:04,124] {taskinstance.py:1397} INFO - Executing <Task(SeleniumOperator): get_files> on 2022-09-01 00:00:00+00:00
+[2022-10-30 05:52:04,130] {standard_task_runner.py:52} INFO - Started process 833 to run task
+[2022-10-30 05:52:04,133] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'etl_denue', 'get_files', 'scheduled__2022-09-01T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/get_raw_files/scrapper.py', '--cfg-path', '/tmp/tmp9bovwgiq', '--error-file', '/tmp/tmp09qm4kqf']
+[2022-10-30 05:52:04,133] {standard_task_runner.py:80} INFO - Job 6: Subtask get_files
+[2022-10-30 05:52:04,172] {task_command.py:371} INFO - Running <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [running]> on host f80d6ee97b6d
+[2022-10-30 05:52:04,220] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Freakisimo
+AIRFLOW_CTX_DAG_ID=etl_denue
+AIRFLOW_CTX_TASK_ID=get_files
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-01T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-01T00:00:00+00:00
+[2022-10-30 05:52:04,329] {selenium_hook.py:14} INFO - initialised hook
+[2022-10-30 05:52:04,329] {selenium_hook.py:18} INFO - getting ip
+[2022-10-30 05:52:04,329] {selenium_hook.py:31} INFO - creating driver
+[2022-10-30 05:52:04,442] {selenium_hook.py:46} INFO - remote ready
+[2022-10-30 05:52:06,919] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=etl_denue, task_id=get_files, execution_date=20220901T000000, start_date=20221030T055204, end_date=20221030T055206
+[2022-10-30 05:52:06,949] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-10-30 05:52:06,971] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-10-30 06:25:34,664] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-30 06:25:34,669] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-30 06:25:34,669] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-30 06:25:34,669] {taskinstance.py:1377} INFO - Starting attempt 4 of 9
+[2022-10-30 06:25:34,670] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-30 06:25:34,678] {taskinstance.py:1397} INFO - Executing <Task(SeleniumOperator): get_files> on 2022-09-01 00:00:00+00:00
+[2022-10-30 06:25:34,684] {standard_task_runner.py:52} INFO - Started process 2408 to run task
+[2022-10-30 06:25:34,685] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'etl_denue', 'get_files', 'scheduled__2022-09-01T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/get_raw_files/scrapper.py', '--cfg-path', '/tmp/tmplyg8o9lw', '--error-file', '/tmp/tmp3066ln3x']
+[2022-10-30 06:25:34,686] {standard_task_runner.py:80} INFO - Job 6: Subtask get_files
+[2022-10-30 06:25:34,719] {task_command.py:371} INFO - Running <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [running]> on host 1dd15365b03f
+[2022-10-30 06:25:34,762] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Freakisimo
+AIRFLOW_CTX_DAG_ID=etl_denue
+AIRFLOW_CTX_TASK_ID=get_files
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-01T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-01T00:00:00+00:00
+[2022-10-30 06:25:34,866] {selenium_hook.py:14} INFO - initialised hook
+[2022-10-30 06:25:34,866] {selenium_hook.py:18} INFO - getting ip
+[2022-10-30 06:25:34,866] {selenium_hook.py:31} INFO - creating driver
+[2022-10-30 06:25:34,972] {selenium_hook.py:46} INFO - remote ready
+[2022-10-30 06:25:37,164] {logging_mixin.py:115} INFO - re.compile('.*en formato csv*.')
+[2022-10-30 06:25:37,170] {logging_mixin.py:115} INFO - []
+[2022-10-30 06:25:37,253] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=etl_denue, task_id=get_files, execution_date=20220901T000000, start_date=20221030T062534, end_date=20221030T062537
+[2022-10-30 06:25:37,302] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-10-30 06:25:37,323] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

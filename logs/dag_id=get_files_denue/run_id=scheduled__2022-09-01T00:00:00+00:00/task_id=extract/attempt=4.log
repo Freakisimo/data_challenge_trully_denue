@@ -1,0 +1,55 @@
+[2022-10-29 17:09:42,695] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: get_files_denue.extract scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-29 17:09:42,700] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: get_files_denue.extract scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-29 17:09:42,700] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-29 17:09:42,700] {taskinstance.py:1377} INFO - Starting attempt 4 of 6
+[2022-10-29 17:09:42,700] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-29 17:09:42,708] {taskinstance.py:1397} INFO - Executing <Task(_PythonDecoratedOperator): extract> on 2022-09-01 00:00:00+00:00
+[2022-10-29 17:09:42,713] {standard_task_runner.py:52} INFO - Started process 1315 to run task
+[2022-10-29 17:09:42,715] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'get_files_denue', 'extract', 'scheduled__2022-09-01T00:00:00+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/get_raw_files/get_files_denue.py', '--cfg-path', '/tmp/tmpsw_3vys6', '--error-file', '/tmp/tmpaq_ylbv1']
+[2022-10-29 17:09:42,715] {standard_task_runner.py:80} INFO - Job 6: Subtask extract
+[2022-10-29 17:09:42,838] {task_command.py:371} INFO - Running <TaskInstance: get_files_denue.extract scheduled__2022-09-01T00:00:00+00:00 [running]> on host 167153ec7ac7
+[2022-10-29 17:09:42,879] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Freakisimo
+AIRFLOW_CTX_DAG_ID=get_files_denue
+AIRFLOW_CTX_TASK_ID=extract
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-01T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-01T00:00:00+00:00
+[2022-10-29 17:09:42,887] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/service.py", line 76, in start
+    creationflags=self.creationflags)
+  File "/usr/local/lib/python3.7/subprocess.py", line 800, in __init__
+    restore_signals, start_new_session)
+  File "/usr/local/lib/python3.7/subprocess.py", line 1551, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: '/chromedriver/chromedriver'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/decorators/base.py", line 179, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/get_raw_files/get_files_denue.py", line 28, in extract
+    innertext='en formato csv'
+  File "/opt/airflow/dags/utils/python_tools.py", line 39, in download_files
+    driver = webdriver.Chrome(executable_path='/chromedriver/chromedriver', options=chrome_options)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chrome/webdriver.py", line 72, in __init__
+    service_log_path, service, keep_alive)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chromium/webdriver.py", line 89, in __init__
+    self.service.start()
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/common/service.py", line 88, in start
+    os.path.basename(self.path), self.start_error_message)
+selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executable may have wrong permissions. Please see https://chromedriver.chromium.org/home
+
+[2022-10-29 17:09:42,892] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=get_files_denue, task_id=extract, execution_date=20220901T000000, start_date=20221029T170942, end_date=20221029T170942
+[2022-10-29 17:09:42,898] {standard_task_runner.py:97} ERROR - Failed to execute job 6 for task extract (Message: 'chromedriver' executable may have wrong permissions. Please see https://chromedriver.chromium.org/home
+; 1315)
+[2022-10-29 17:09:42,926] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-10-29 17:09:43,037] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

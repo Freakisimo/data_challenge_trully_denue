@@ -1,0 +1,28 @@
+[2022-10-30 08:01:40,420] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-30 08:01:40,425] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [queued]>
+[2022-10-30 08:01:40,426] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-30 08:01:40,426] {taskinstance.py:1377} INFO - Starting attempt 31 of 36
+[2022-10-30 08:01:40,426] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2022-10-30 08:01:40,434] {taskinstance.py:1397} INFO - Executing <Task(SeleniumOperator): get_files> on 2022-09-01 00:00:00+00:00
+[2022-10-30 08:01:40,439] {standard_task_runner.py:52} INFO - Started process 10597 to run task
+[2022-10-30 08:01:40,441] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'etl_denue', 'get_files', 'scheduled__2022-09-01T00:00:00+00:00', '--job-id', '33', '--raw', '--subdir', 'DAGS_FOLDER/get_raw_files/scrapper.py', '--cfg-path', '/tmp/tmpgfnhb7xr', '--error-file', '/tmp/tmpur2pu45t']
+[2022-10-30 08:01:40,442] {standard_task_runner.py:80} INFO - Job 33: Subtask get_files
+[2022-10-30 08:01:40,475] {task_command.py:371} INFO - Running <TaskInstance: etl_denue.get_files scheduled__2022-09-01T00:00:00+00:00 [running]> on host 1dd15365b03f
+[2022-10-30 08:01:40,518] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Freakisimo
+AIRFLOW_CTX_DAG_ID=etl_denue
+AIRFLOW_CTX_TASK_ID=get_files
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-01T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=31
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-09-01T00:00:00+00:00
+[2022-10-30 08:01:40,614] {selenium_hook.py:14} INFO - initialised hook
+[2022-10-30 08:01:40,614] {selenium_hook.py:18} INFO - getting ip
+[2022-10-30 08:01:40,615] {selenium_hook.py:31} INFO - creating driver
+[2022-10-30 08:01:40,711] {selenium_hook.py:46} INFO - remote ready
+[2022-10-30 08:01:53,767] {logging_mixin.py:115} INFO - []
+[2022-10-30 08:01:53,789] {logging_mixin.py:115} INFO - []
+[2022-10-30 08:01:53,868] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=etl_denue, task_id=get_files, execution_date=20220901T000000, start_date=20221030T080140, end_date=20221030T080153
+[2022-10-30 08:01:53,894] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-10-30 08:01:53,913] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

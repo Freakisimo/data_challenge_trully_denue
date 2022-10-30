@@ -1,0 +1,8 @@
+numpy 
+boto3 
+s3fs
+botocore 
+openpyxl
+geopandas
+selenium
+# chromedriver-binary 
