@@ -2,6 +2,7 @@ from airflow.hooks.base_hook import BaseHook
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.remote.command import Command
 import logging
 import time
 
@@ -57,4 +58,10 @@ class SeleniumHook(BaseHook):
 
     
     def quit_driver(self):
-        self.driver.quit()
+        try:
+            self.driver.execute(Command.STATUS)
+            self.driver.quit()
+            logging.info('Driver quit correctly')
+        except:
+            self.driver = None
+            logging.error('Driver is dead')

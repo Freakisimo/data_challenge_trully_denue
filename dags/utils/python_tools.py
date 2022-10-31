@@ -1,68 +1,29 @@
-from bs4 import BeautifulSoup
-from selenium import webdriver
-import requests
+from unicodedata import normalize
+
 import os
-import re
-import shutil
 import zipfile
 import boto3
 import pandas as pd
-# import chromedriver_binary
+import time
 
+
+def get_files(root: str) -> list:
+    return [os.path.join(path, name) 
+            for path, subdirs, files in os.walk(root)
+            for name in files]
 
 def safe_path(path: str) -> str:
+    trans_tab = dict.fromkeys(map(ord, u'\u0301\u0308'), None)
     to_lower = path.lower()
-    spaces = to_lower.replace(" ", "_")
-    return spaces
+    comma = to_lower.replace(" ", "_")
+    spaces = comma.replace(",", "")
+    normalized = normalize('NFKC', normalize('NFKD', spaces).translate(trans_tab))
+    return normalized
 
 
-def download_files(
-    url: str, 
-    path: str, 
-    label: str, 
-    spa: bool=False,
-    css_class: str=None, 
-    innertext: str=None
-) -> list:
+def unzip_files(root: str) -> None:
+    files = get_files(root)
 
-
-    if os.path.exists(path):
-        shutil.rmtree(path)
-
-    if not spa:
-        page = requests.get(url)
-    else:
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument("--no-sandbox")
-        chrome_options.add_argument("--headless")
-        chrome_options.add_argument("--disable-gpu")
-        driver = webdriver.Chrome(executable_path='/chromedriver/chromedriver', options=chrome_options)
-        page = driver.get(url)
-    soup = BeautifulSoup(page.content, 'html.parser')
-    print(soup)
-    css_condition = {"class": re.compile(f'.*{css_class}*.')} if css_class else {}
-    text_condition = re.compile(f'.*{innertext}*.')
-    links = [a['href'] for a in soup.find_all(label, css_condition, text=text_condition)]
-
-    if not os.path.exists(path):
-        os.mkdir(path)
-
-    files = []
-    for link in links:
-        file = requests.get(link, stream = True)
-        file_name = link.rsplit('/', 1)[-1]
-        file_path = safe_path(f"{path}{file_name}")
-        with open(file_path,"wb") as shp:
-            for chunk in file.iter_content(chunk_size=1024):  
-                if chunk:
-                    shp.write(chunk)
-        
-        files.append(file_path)
-
-    return files    
-
-
-def unzip_files(files: list) -> list:
     local_files = []
     for f in files:
         if f.endswith('.zip'):
@@ -70,6 +31,7 @@ def unzip_files(files: list) -> list:
             target_path = f"{f_path}/"
             with zipfile.ZipFile(f,"r") as zip_ref:
                 zip_files = [f"{target_path}{zf}" for zf in zip_ref.namelist()]
+                time.sleep(1)
                 zip_ref.extractall(target_path)
 
             files.remove(f)
@@ -92,7 +54,6 @@ def unzip_files(files: list) -> list:
         os.rename(lf, lf_safe)
         local_files[idx] = lf_safe
 
-    return local_files
 
 
 def xlsx_to_csv(files: list) -> list:
@@ -115,7 +76,19 @@ def xlsx_to_csv(files: list) -> list:
     return local_files 
     
 
-def upload_s3_files(files: list, start_path: str, bucket: str, prefix: str='') -> None:
+def upload_s3_files(
+    root: str, 
+    start_path: str, 
+    bucket: str, 
+    fiter_path: str='',
+    prefix: str=''
+) -> None:
+    files = get_files(root)
+
+    print(files)
+
+    return
+
     s3_client = boto3.client('s3')
     for f in files:
         r_path = os.path.relpath(f, start_path)
